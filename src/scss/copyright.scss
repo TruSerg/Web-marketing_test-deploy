@@ -1,0 +1,24 @@
+@import "_vars";
+
+.copyright {
+  padding: 20px 0 20px 0;
+  background-color: #c3bbbb;
+
+  &__wrapper {
+    text-align: center;
+  }
+
+  &__content {
+    text-align: center;
+    color: $text;
+  }
+
+  &__link {
+    color: #0660ee;
+    transition: color 0.5s ease;
+
+    &:hover {
+      color: $text;
+    }
+  }
+}

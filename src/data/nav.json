@@ -1,0 +1,20 @@
+{
+    "nav": [
+        {
+            "href": "#",
+            "text": "Home"
+        },
+        {
+            "href": "#",
+            "text": "Trucks"
+        },
+        {
+            "href": "#",
+            "text": "About Us"
+        },
+        {
+            "href": "#",
+            "text": "Contact"
+        }
+    ]
+}

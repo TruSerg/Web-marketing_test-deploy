@@ -1,0 +1,12 @@
+
+- var slider = data.slider.slides
+
+section.slider
+	.swiper-wrapper
+		each slide in slider
+			.slider__slide.swiper-slide
+				img(src= slide.img, alt= slide.alt)
+				.slider__text
+					h2.slider__title= slide.title
+					p.slider__subtitle= slide.subtitle
+				

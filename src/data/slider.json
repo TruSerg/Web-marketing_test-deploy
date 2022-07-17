@@ -1,0 +1,29 @@
+{
+    
+    "slides": [
+        {
+            "title": "ENJOY THE VIEWS",
+            "subtitle": "WORK AND TRAVEL",
+            "img": "../assets/img/truck 1.jpg",
+            "alt": "truck"
+        },
+        {
+            "title": "STOP DREAMING",
+            "subtitle": "DRIVE A DREAM",
+            "img": "../assets/img/truck 2.jpg",
+            "alt": "truck"
+        },
+        {
+            "title": "WORK FOR PLEASURE",
+            "subtitle": "THE BEST TECHNIQUE",
+            "img": "../assets/img/truck 3.jpg",
+            "alt": "truck"
+        },
+        {
+            "title": "ALL THE BEST FOR YOU",
+            "subtitle": "CHOOSE THE BEST",
+            "img": "../assets/img/truck 4.jpg",
+            "alt": "truck"
+        }
+    ]
+}

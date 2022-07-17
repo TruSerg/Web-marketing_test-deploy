@@ -1,0 +1,7 @@
+
+mixin nav(links, parent)
+	nav(class= parent + '__nav')
+		ul(class= parent + '__nav-list')
+			each link in links
+				li(class= parent + '__nav-item')
+					a(href='#')= link.text

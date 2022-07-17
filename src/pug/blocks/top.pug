@@ -1,0 +1,14 @@
+include ../mixins/nav
+
+- var links = data.nav.nav;
+
+.top
+	.container
+		.top__wrapper
+			a(href="#").top__logo
+				img(src='./assets/img/logo.png', alt='logo').top__img
+			.top__icon-menu
+				span
+			if links
+				+nav(links, 'top')
+

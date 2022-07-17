@@ -1,0 +1,28 @@
+
+mixin card(card)
+		.products__card
+			.products__card-img
+				img(src= card.image, alt = "truck")
+			a(href=`${card.href}`).products__card-title= card.title
+			.products__card-description
+				.products__card-text
+					p.products__card-item <span class="products__card-type">Model:</span> #{card.make}
+						span.products__card-about= card.model
+					p.products__card-item <span class="products__card-type">Type:</span> #{card.type}
+					p.products__card-item <span class="products__card-type">Year:</span> #{card.year}
+					p.products__card-item <span class="products__card-type">Mileage:</span> #{card.mileage}
+						span.products__card-about= card.mileage_measure
+					p.products__card-item <span class="products__card-type">Axle configuration:</span> #{card.axle_configuration}
+					p.products__card-item <span class="products__card-type">Power:</span> #{card.power}
+						span.products__card-about= card.power_measure
+					p.products__card-item <span class="products__card-type">Payload:</span> #{card.payload}
+					p.products__card-item <span class="products__card-type">Gross weight:</span> #{card.gross_weight}
+			.products__card-footer
+				p.products__card-price= card.price
+					span.products__card-about= card.price_currency
+					
+
+
+
+
+

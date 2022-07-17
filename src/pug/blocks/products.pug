@@ -1,0 +1,19 @@
+include ../mixins/card.pug
+
+- var cards = data.products.stock
+- var about = data.text.page_text
+- var title = data.common.page_meta.h1
+
+section.products
+  .container
+    .products__content
+      h1.products__title #{title}
+      .products__catalog
+        .products__cards
+          if cards
+            each card in cards
+              +card(card)
+        .products__about
+         if about
+            each text in about
+              #{text.tag}.products__item= text.content

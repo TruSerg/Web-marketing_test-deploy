@@ -1,0 +1,126 @@
+@import "_vars";
+
+.slider {
+    width: 100%;
+    height: 500px;
+    position: relative;
+
+    &__slide {
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            object-fit: cover;
+            height: 100%;
+        }
+    }
+
+    &__text {
+        font-family: "Open Sans";
+        color: rgb(255, 255, 255);
+        text-transform: uppercase;
+        line-height: 1.5;
+        display: flex;
+        flex-direction: column;
+        padding: 192.3px 0;
+        margin-left: 236px;
+
+        p {
+            background-color: rgba($color: #000, $alpha: .5);
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        h2 {
+            font-size: 30px;
+            font-weight: 300;
+            max-width: 286px;
+            margin-bottom: 4px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            max-width: 330px;
+        }
+    }
+}
+
+// ======== Media =========
+
+@media (max-width: $xl) {
+    .slider {
+
+        &__text {
+            padding: 100px 0;
+            margin-left: 150px;
+        }
+    }
+}
+
+@media (max-width: $lg) {
+    .slider {
+
+        &__text {
+            padding: 80px 0;
+            margin-left: 100px;
+        }
+    }
+}
+
+@media (max-width: $md) {
+    .slider {
+
+        &__text {
+            padding: 100px 0;
+            margin-left: 50px;
+        }
+    }
+}
+
+@media (max-width: $sm) {
+    .slider {
+        height: 300px;
+
+        &__text {
+            padding: 50px 0;
+
+            p {
+                background-color: rgba($color: #000, $alpha: .5);
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 20px;
+                max-width: 250px;
+            }
+        }
+    }
+}
+
+
+@media (max-width: $xs) {
+    .slider {
+        height: 200px;
+
+        &__text {
+            padding: 20px 0;
+
+            h2 {
+                font-size: 16px;
+            }
+
+            p {
+                font-size: 16px;
+                max-width: 190px;
+            }
+        }
+    }
+}

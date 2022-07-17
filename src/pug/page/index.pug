@@ -1,0 +1,18 @@
+extends ../layout/main.pug
+
+block variables
+	- var pageTitle = data.common.page_meta.title
+	- var metaKeywords = data.common.page_meta.meta_keywords
+	- var metaDescription = data.common.page_meta.meta_description
+
+
+block content
+	include ../blocks/top.pug
+	include ../blocks/header.pug
+
+	main.main
+		include ../blocks/slider.pug
+		include ../blocks/products.pug
+		include ../blocks/footer.pug
+		include ../blocks/copyright.pug
+
