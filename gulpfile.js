@@ -10,7 +10,10 @@ const pug = require('gulp-pug');
 const del = require('del');
 const fs = require('fs')
 const path = require('path') 
-const data = {} 
+const data = {}
+const shell = require('gulp-shell');
+const GulpSSH = require('gulp-ssh');
+const moment = require('moment');
 
 gulp.task('json', (callback) => {
     try { 
@@ -136,4 +139,61 @@ gulp.task(
         gulp.parallel('server', 'watch')
     )
 )
+
+
+
+const config = {
+    host: '192.168.0.1',
+    port: 22,
+    username: 'username',
+    agent: process.env.SSH_AUTH_SOCK
+};
+
+const archiveName = 'deploy.tgz';
+const timestamp = moment().format('YYYYMMDDHHmmssSSS');
+const buildPath = './build';
+const rootPath = '/home/project/root/directory/';
+const releasesPath = rootPath + 'releases/';
+const symlinkPath = rootPath + 'current';
+const releasePath = releasesPath + timestamp;
+
+const gulpSSH = new GulpSSH({
+    ignoreErrors: false,
+    sshConfig: config
+});
+
+gulp.task('deploy:compress', ['build'], shell.task("tar -czvf ./" + archiveName + " --directory=" + buildPath + " ."));
+
+gulp.task('deploy:prepare', function() {
+    return gulpSSH.exec("cd " + releasesPath + " && mkdir " + timestamp);
+});
+
+gulp.task('deploy:upload', ['deploy:prepare', 'deploy:compress'], function() {
+    return gulp.src(archiveName)
+        .pipe(gulpSSH.sftp('write', releasePath + '/' + archiveName))
+});
+
+gulp.task('deploy:uncompress', ['deploy:upload'], function() {
+    return gulpSSH.exec("cd " + releasePath + " && tar -xzvf " + archiveName);
+});
+
+gulp.task('deploy:symlink', ['deploy:uncompress'], function() {
+    return gulpSSH.exec("rm " + symlinkPath + " &&" +
+        " ln -s " + releasePath + " " + symlinkPath);
+});
+
+gulp.task('deploy:clean', ['deploy:symlink'], shell.task('rm ' + archiveName, {ignoreErrors: true}));
+
+gulp.task('clean:build', ['deploy:symlink'], function () {
+    return gulp.start('clean')
+});
+
+gulp.task('deploy', ['build',
+    'deploy:compress',
+    'deploy:prepare',
+    'deploy:upload',
+    'deploy:uncompress',
+    'deploy:symlink',
+    'deploy:clean',
+    'clean:build']);
 
