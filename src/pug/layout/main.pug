@@ -8,12 +8,20 @@ html(lang="en")
 		meta(name="keywords" content= metaKeywords)
 		meta(name="description" content= metaDescription)
 		link(rel="icon" href="./assets/img/favicon.ico")
-		link(rel="stylesheet", href="css/main.css")
+		<!-- build:css css/vendor.css -->
 		link(rel="stylesheet" type="text/css" href="./css/swiper-bundle.min.css")
+		<!-- endbuild -->
+		<!-- build:css css/main.css -->
+		link(rel="stylesheet", href="css/main.css")
+		<!-- endbuild -->
+		<!-- build:js scripts/vendor.js -->
 		script(src='./js/swiper-bundle.min.js' defer)
+		<!-- endbuild -->
+		<!-- build:js scripts/main.js -->
 		script(src="./js/slider.js" defer)
 		script(src="./js/burger.js" defer)
 		title= pageTitle
+		<!-- endbuild -->
 	body
 		block content
 

@@ -12,6 +12,11 @@ const fs = require('fs')
 const path = require('path') 
 const data = {}
 
+gulp.task('build', () => {
+    return gulp.src('dist/*.html')
+        .pipe(gulp.dest('dist'));
+});
+
 gulp.task('json', (callback) => {
     try { 
         const modules = fs.readdirSync('src/data/') 
